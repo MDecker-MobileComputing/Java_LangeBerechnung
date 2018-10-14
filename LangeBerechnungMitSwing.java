@@ -22,21 +22,24 @@ import javax.swing.text.NumberFormatter;
  * (eigentlich nicht erlaubt) und in einem HintergrundThread ("Worker Thread").
  * <br><br>
  *
+ * Die Kodierung dieser Quellcode-Datei ist UTF-8 (ohne BOM).
+ * <br><br>
+ *
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 @SuppressWarnings("serial")
 public class LangeBerechnungMitSwing extends JFrame {
         
-    /** UI-Element zur Eingabe der Zahl, für die die dritte Potenz berechnet werden soll */
+    /** UI-Element zur Eingabe der Zahl, für die die dritte Potenz berechnet werden soll. */
     protected JFormattedTextField _zahlEingabefeld = null;
     
-    /** Button zum Start der Berechnung im Main-Thread */
+    /** Button zum Start der Berechnung im Main-Thread. */
     protected JButton _button1 = null;
     
-    /** Button zum Start der Berechnung in einem Background-Thread */
+    /** Button zum Start der Berechnung in einem Background-Thread. */
     protected JButton _button2 = null;
     
-    /** UI-Element zur Darstellung Ergebnis nach Berechnung */
+    /** UI-Element zur Darstellung Ergebnis nach Berechnung. */
     protected JLabel _ergebnisLabel = null;
     
     /** Zeitstempel (Beginn der Berechnung mit System.currentTimeMillis() ) für Ermittelung der Berechnungsdauer. */
@@ -235,8 +238,13 @@ public class LangeBerechnungMitSwing extends JFrame {
     /* *************************** */   
     public class RechenThread extends Thread {
 
+        /** Im Konstruktor übergebene Zahl, von der die dritte Potenz berechnet werden soll. */ 
         protected int __inputParameter = -1;
         
+        /**
+         * Konstruktor. Kopiert <i>inputParameter</i> 
+         * in eine Member-Variable. 
+         */
         public RechenThread(int inputParameter) {
             __inputParameter = inputParameter;
         }

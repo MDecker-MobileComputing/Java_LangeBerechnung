@@ -25,6 +25,10 @@ import javafx.stage.Stage;
  * unter <i>jre\lib\jfxrt.jar</i>.
  * <br><br>
  *
+ * Die Kodierung dieser Quellcode-Datei ist UTF-8 (ohne BOM).
+ * <br><br>
+ *
+ *
  * API-Doc zu JavaFX: 
  * <a href="https://docs.oracle.com/javafx/2/api/index.html">https://docs.oracle.com/javafx/2/api/index.html</a>
  * <br><br>
@@ -53,7 +57,7 @@ public class LangeBerechnungMitJavaFX extends Application {
     /**
 	 * Lifecycle-Methode, überschreiben für Aufbau der Oberfläche.
 	 *
-	 * @param stage Vergleichbar mit "JFrame"-Instanz bei Swing.
+	 * @param stage  Vergleichbar mit "JFrame"-Instanz bei Swing.
 	 */
     @Override
     public void start(final Stage stage) throws Exception {
@@ -160,7 +164,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 	 * Achtung: Laufzeit wächst kubisch mit <i>inputParameter</i>!
 	 * Diese Methode wird so auch in der App "Android_LangeBerechnung" verwendet.
 	 * 
-	 * @param inputParameter Eingabe-Zahl, für die die dritte Potenz berechnet werden soll.
+	 * @param inputParameter  Eingabe-Zahl, für die die dritte Potenz berechnet werden soll.
 	 */
 	public long berechnung(int inputParameter) {
 		long result = 0;
@@ -187,7 +191,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 	 * Stopp der "Stoppuhr", die mit {@link LangeBerechnungMitJavaFX#zeitmessungStart()} 
 	 * gestartet wurde. Gemessene Zeit wird als String zurückgeliefert.
 	 * 
-	 * @return String mit Beschreibung der Zeitdauer in Sekunden, z.B. "Dauer: 5s".
+	 * @return  String mit Beschreibung der Zeitdauer in Sekunden, z.B. "Dauer: 5s".
 	 */
 	protected String zeitmessungStopp() {
 		long endeTimestamp = System.currentTimeMillis();
@@ -204,9 +208,9 @@ public class LangeBerechnungMitJavaFX extends Application {
 	 * Bei unzulässigen Nutzer-Eingaben werden entsprechende
 	 * Fehlermeldungen im Ergebnis-Label angezeigt.
 	 * 
-	 * @return Zahl, von der die dritte Potenz berechnet werden soll;
-	 *         gibt <i>Integer.MIN_VALUE</i> zurück, wenn keine zulässige
-	 *         Zahl eingegeben war.         
+	 * @return  Zahl, von der die dritte Potenz berechnet werden soll;
+	 *          gibt <i>Integer.MIN_VALUE</i> zurück, wenn keine zulässige
+	 *          Zahl eingegeben war.         
 	 */
 	protected int holeEingabeZahl() {
 		
@@ -252,8 +256,10 @@ public class LangeBerechnungMitJavaFX extends Application {
 	 */
 	public class RechenTask extends Task<Void> {
 		
+        /** Input-Zahl, von der die dritte Potenz berechnet werden soll, */        
 		protected int __inputParameter = -1;
 		
+        /** Konstruktor, kopiert <i>inputParameter</i> in eine Member-Variable. */
 		public RechenTask(int inputParameter) {
 			__inputParameter = inputParameter;
 		}
