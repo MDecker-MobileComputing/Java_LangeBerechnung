@@ -16,16 +16,17 @@ import javafx.stage.Stage;
 /**
  * Demo-Programm mit JavaFX (=Nachfolger von Swing).
  * Eine langlaufende Berechnung kann entweder im Main-Thread oder in einem Hintergrund-Thread
- * ausgeführt werden.
+ * ausgefÃ¼hrt werden.
  * <br><br>
  *
- * Für Ausführung mit Java7 muss evtl. die Bibliothek "jfxrt" (JavaFX Runtime) 
+ * FÃ¼r AusfÃ¼hrung mit Java7 muss evtl. die Bibliothek "jfxrt" (JavaFX Runtime) 
  * manuell in den Classpath (z.B. als external Library im Eclipse-Projekt)
  * aufgenommen werden. Diese Library befindet sich im Ordner mit der JDK-Installation
  * unter <i>jre\lib\jfxrt.jar</i>.
  * <br><br>
  *
- * API-Doc zu JavaFX: <a href="https://docs.oracle.com/javafx/2/api/index.html">https://docs.oracle.com/javafx/2/api/index.html</a>
+ * API-Doc zu JavaFX: 
+ * <a href="https://docs.oracle.com/javafx/2/api/index.html">https://docs.oracle.com/javafx/2/api/index.html</a>
  * <br><br>
  * 
  * This project is licensed under the terms of the BSD 3-Clause License.
@@ -35,7 +36,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 	/** UI-Element zur Anzeige des Berechnungsergebnisses. */
 	protected Label _ergLabel = null;
 	
-	/** UI-Element zur Eingabe der Zahl, für die die dritte Potenz berechnet werden soll. */
+	/** UI-Element zur Eingabe der Zahl, fÃ¼r die die dritte Potenz berechnet werden soll. */
 	protected TextField _textField = null;
 	
 	/** UI-Element zum Start der Berechnung im Main-Thread. */
@@ -44,13 +45,13 @@ public class LangeBerechnungMitJavaFX extends Application {
 	/** UI-Element zum Start der Berechnung in einem Hintergrund-Thread. */
 	protected Button _button2 = null;
 	
-	/** Zeitstempel (zu Beginn der Berechnung mit <i>System.currentTimeMillis()</i> befüllt) 
-	 * für Ermittelung der Berechnungsdauer. */
+	/** Zeitstempel (zu Beginn der Berechnung mit <i>System.currentTimeMillis()</i> befÃ¼llt) 
+	 * fÃ¼r Ermittelung der Berechnungsdauer. */
 	protected static long sStartTimestamp = -1;
 	
 	
     /**
-	 * Lifecycle-Methode, überschreiben für Aufbau der Oberfläche.
+	 * Lifecycle-Methode, Ã¼berschreiben fÃ¼r Aufbau der OberflÃ¤che.
 	 *
 	 * @param stage Vergleichbar mit "JFrame"-Instanz bei Swing.
 	 */
@@ -65,14 +66,14 @@ public class LangeBerechnungMitJavaFX extends Application {
 		
     	Font grosserFont = new Font(35);
     	
-		// Textfeld für Eingabe der Zahl hinzufügen
+		// Textfeld fÃ¼r Eingabe der Zahl hinzufÃ¼gen
 		_textField = new TextField("123");
 		_textField.setPromptText("Hier Zahl eingeben"); // wird sichtbar, wenn nichts eingegeben ist.
 		_textField.setFont(grosserFont);
 		vbox.getChildren().add( _textField );
 		
 		
-		// Button 1 hinzufügen
+		// Button 1 hinzufÃ¼gen
 		_button1 = new Button("Berechnen im Main-Thread");
 		_button1.setFont(grosserFont);
 		//button1.setAlignment(Pos.CENTER);
@@ -85,7 +86,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 		vbox.getChildren().add( _button1 );
 		
 		
-		// Button 2 hinzufügen
+		// Button 2 hinzufÃ¼gen
 		_button2 = new Button("Berechnen in eigenem Thread");
 		_button2.setFont(grosserFont);
 		_button2.setOnAction(new EventHandler<ActionEvent>() {		
@@ -97,7 +98,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 		vbox.getChildren().add( _button2 );
 		
 		
-		// Label für Anzeige des Ergebnissen hinzufügen
+		// Label fÃ¼r Anzeige des Ergebnissen hinzufÃ¼gen
 		_ergLabel = new Label("<Ergebnis>");
 		_ergLabel.setFont(grosserFont);
 		_ergLabel.setStyle("-fx-background-color: yellow;");
@@ -105,7 +106,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 		
 		
 		// "Szene" entspricht etwa "ContentPane" bei Swing
-		Scene scene = new Scene( vbox, 700, 400 ); // Breite=300, Höhe=200
+		Scene scene = new Scene( vbox, 700, 400 ); // Breite=300, HÃ¶he=200
 		
 		// Stage konfigurieren & sichtbar machen
 		stage.setScene( scene ); 
@@ -116,8 +117,8 @@ public class LangeBerechnungMitJavaFX extends Application {
 
 		
 	/**
-	 * Event-Handler für Button zur Durchführung der Berechnung im Main-Thread.
-	 * Das ist schlecht, weil dann während der Ausführung der Berechnung die 
+	 * Event-Handler fÃ¼r Button zur DurchfÃ¼hrung der Berechnung im Main-Thread.
+	 * Das ist schlecht, weil dann wÃ¤hrend der AusfÃ¼hrung der Berechnung die 
 	 * UI blockiert ist.
 	 */
 	protected void starteBerechnungInMainThread() {
@@ -134,7 +135,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 	
 	
 	/**
-	 * Event-Handler für Button zur Durchführung der Berechnung in einem Hintergrund-Thread.
+	 * Event-Handler fÃ¼r Button zur DurchfÃ¼hrung der Berechnung in einem Hintergrund-Thread.
 	 */	
 	protected void starteBerechnungInHintergrundThread() {
 		
@@ -148,18 +149,18 @@ public class LangeBerechnungMitJavaFX extends Application {
         Thread thread = new Thread(task);
         thread.start();
 		
-		_ergLabel.setText("Berechnung gestartet für " + eingabeZahl + " ...");				
+		_ergLabel.setText("Berechnung gestartet fÃ¼r " + eingabeZahl + " ...");				
 	}	
 	
 	
     /**
 	 * Berechnet <i>"inputParameter hoch drei"</i> auf sehr ineffiziente Wiese
-	 * (nämlich mit einer dreifach gestaffelten Schleife).
-	 * Je größer der Wert <i>inputParameter</i> ist, desto länger dauert sie.
-	 * Achtung: Laufzeit wächst kubisch mit <i>inputParameter</i>!
+	 * (nÃ¤mlich mit einer dreifach gestaffelten Schleife).
+	 * Je grÃ¶ÃŸer der Wert <i>inputParameter</i> ist, desto lÃ¤nger dauert sie.
+	 * Achtung: Laufzeit wÃ¤chst kubisch mit <i>inputParameter</i>!
 	 * Diese Methode wird so auch in der App "Android_LangeBerechnung" verwendet.
 	 * 
-	 * @param inputParameter Eingabe-Zahl, für die die dritte Potenz berechnet werden soll.
+	 * @param inputParameter Eingabe-Zahl, fÃ¼r die die dritte Potenz berechnet werden soll.
 	 */
 	public long berechnung(int inputParameter) {
 		long result = 0;
@@ -175,7 +176,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 	
 	
 	/**
-	 * Start der "Stoppuhr" für die Messung der Berechnungsdauer.
+	 * Start der "Stoppuhr" fÃ¼r die Messung der Berechnungsdauer.
 	 */
 	protected void zeitmessungStart() {
 		sStartTimestamp = System.currentTimeMillis();
@@ -184,7 +185,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 	
 	/**
 	 * Stopp der "Stoppuhr", die mit {@link LangeBerechnungMitJavaFX#zeitmessungStart()} 
-	 * gestartet wurde. Gemessene Zeit wird als String zurückgeliefert.
+	 * gestartet wurde. Gemessene Zeit wird als String zurÃ¼ckgeliefert.
 	 * 
 	 * @return String mit Beschreibung der Zeitdauer in Sekunden, z.B. "Dauer: 5s".
 	 */
@@ -199,12 +200,12 @@ public class LangeBerechnungMitJavaFX extends Application {
 	
 	/**
 	 * Versucht die in das Eingabefeld eingetragene Zahl auszulesen 
-	 * und als int-Wert zurückzugeben.
-	 * Bei unzulässigen Nutzer-Eingaben werden entsprechende
+	 * und als int-Wert zurÃ¼ckzugeben.
+	 * Bei unzulÃ¤ssigen Nutzer-Eingaben werden entsprechende
 	 * Fehlermeldungen im Ergebnis-Label angezeigt.
 	 * 
 	 * @return Zahl, von der die dritte Potenz berechnet werden soll;
-	 *         gibt <i>Integer.MIN_VALUE</i> zurück, wenn keine zulässige
+	 *         gibt <i>Integer.MIN_VALUE</i> zurÃ¼ck, wenn keine zulÃ¤ssige
 	 *         Zahl eingegeben war.         
 	 */
 	protected int holeEingabeZahl() {
@@ -223,7 +224,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 		}
 		catch (Exception ex) {
 			System.out.println("Exception beim Versuch die Eingabezahl zu parsen: " + ex);
-			_ergLabel.setText("Unzulässige Zahl \"" + zahlStr + "\" eingebeben.");
+			_ergLabel.setText("UnzulÃ¤ssige Zahl \"" + zahlStr + "\" eingebeben.");
 			return Integer.MIN_VALUE;
 		}		
 	}
@@ -246,8 +247,8 @@ public class LangeBerechnungMitJavaFX extends Application {
 	/**
 	 * Task-Klasse zur Auslagerung der langlaufenden Berechnung
 	 * in einen Hintergrund-Thread (die Klasse <i>Task</i>
-	 * ist spezifisch für JavaFX).  
-	 * Achtung: Parameter ist Platzhalter-Klasse <i>Void</i>, nicht Schlüsselwort <i>void</i>.
+	 * ist spezifisch fÃ¼r JavaFX).  
+	 * Achtung: Parameter ist Platzhalter-Klasse <i>Void</i>, nicht SchlÃ¼sselwort <i>void</i>.
 	 */
 	public class RechenTask extends Task<Void> {
 		
@@ -258,7 +259,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 		}
 
 		/**
-		 * Inhalt dieser Methode wird in einem Hintergrund-Thread ausgeführt.
+		 * Inhalt dieser Methode wird in einem Hintergrund-Thread ausgefÃ¼hrt.
 		 */
 		@Override
 		protected Void call() throws Exception {
@@ -273,7 +274,7 @@ public class LangeBerechnungMitJavaFX extends Application {
 			
 			
 			// Ergebnis in Main-Thread darstellen
-			Platform.runLater(new Runnable() { // Klasse <i>Platform</i> ist spezifisch für JavaFX
+			Platform.runLater(new Runnable() { // Klasse <i>Platform</i> ist spezifisch fÃ¼r JavaFX
                 @Override 
                 public void run() {
                 	_ergLabel.setText(ergString);
