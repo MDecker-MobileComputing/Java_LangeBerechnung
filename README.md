@@ -10,13 +10,25 @@ Identifiers (names for classes, variables and methods), (JavaDoc) comments and U
 <br>
 
 ----
+## Compiling
+
+Open a shell (e.g. DOS Box or Shell) in the folder with the Java file. Then enter the following command:
+
+````
+javac *.java
+````
+
+This should compile both variants of the application (namely one with *Swing* and one with *JavaFX*).
+
+<br>
+
+----
 ## Swing version
 
 
-Commands to compile and run:
+Commands to run the application:
 
 ````
-javac LangeBerechnungMitSwing.java
 java LangeBerechnungMitSwing
 ````
 
@@ -29,10 +41,9 @@ java LangeBerechnungMitSwing
 ----
 ## JavaFX version
 
-Commands to compile and run:
+Commands to run the application:
 
 ````
-javac LangeBerechnungMitJavaFX.java
 java LangeBerechnungMitJavaFX
 ````
 
@@ -45,3 +56,4 @@ java LangeBerechnungMitJavaFX
 # License
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License).
+
