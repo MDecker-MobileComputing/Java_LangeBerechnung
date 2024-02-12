@@ -1,4 +1,6 @@
-# Lange Berechnung mit Swing und JavaFX
+# Lange Berechnung mit Swing und JavaFX #
+
+<br>
 
 Two Java programs (Desktop programs, no Android apps!) showing how to perform a long calculation in a background thread. 
 The programs are using different UI libraries, namely [Swing](https://docs.oracle.com/javase/tutorial/uiswing/start/index.html) 
@@ -10,7 +12,10 @@ Identifiers (names for classes, variables and methods), (JavaDoc) comments and U
 <br>
 
 ----
-## Compiling
+
+## Compiling ##
+
+<br>
 
 Open a shell (e.g. DOS Box or Shell) in the folder with the Java file. Then enter the following command:
 
@@ -23,8 +28,10 @@ This should compile both variants of the application (namely one with *Swing* an
 <br>
 
 ----
-## Swing version
 
+## Swing version ##
+
+<br>
 
 Commands to run the application:
 
@@ -39,7 +46,9 @@ java LangeBerechnungMitSwing
 <br>
 
 ----
-## JavaFX version
+## JavaFX version ##
+
+<br>
 
 Commands to run the application:
 
@@ -54,7 +63,11 @@ java LangeBerechnungMitJavaFX
 <br>
 
 ----
-# License
+
+## License ##
+
+<br>
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License).
 
+<br>
